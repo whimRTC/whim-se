@@ -18,7 +18,7 @@ export default new Vuex.Store({
   mutations: {
     setRoom(state, room) {
       state.room = room;
-      state.appState = room.appState;
+      state.appState = room.appState || {};
     },
     setUsers(state, users) {
       console.log(users);
@@ -29,7 +29,7 @@ export default new Vuex.Store({
     }
   },
   actions: {
-    updateAppState({ state }, obj) {
+    appState({ state }, obj) {
       let appState = state.room.appState || {};
       Object.keys(obj).forEach(key => {
         appState[key] = obj[key];
