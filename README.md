@@ -16,3 +16,9 @@ git remote set-url origin {your_url}
 yarn
 yarn serve
 ``` 
+
+## 起動(Docker)
+```
+docker build --tag app:latest . 
+docker run -it -v $PWD:/template -p 3001:3001 app:latest
+```
