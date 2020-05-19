@@ -3,12 +3,7 @@ import Vuex from "vuex";
 
 Vue.use(Vuex);
 
-// 情報の登録
-const postAppState = appState => {
-  window.parent.postMessage({ appState }, document.referrer);
-};
-
-export default new Vuex.Store({
+const store new Vuex.Store({
   state: {
     room: {}, // room information
     users: [], // information of users in the room
@@ -47,6 +42,13 @@ export default new Vuex.Store({
       return state.users.find(user => user.id === state.accessUserId);
     }
     // put original getters here
-  },
-  modules: {}
+  }
 });
+
+// appStateの更新、clinet & server
+const postAppState = appState => {
+  store.commit("setAppState", appState);
+  window.parent.postMessage({ appState }, document.referrer);
+};
+
+export default store;
