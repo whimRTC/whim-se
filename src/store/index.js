@@ -46,6 +46,7 @@ const store = new Vuex.Store({
 });
 
 // appStateの更新、clinet & server
+// It will be called from actions
 const postAppState = appState => {
   store.commit("setAppState", appState);
   window.parent.postMessage({ appState }, document.referrer);
