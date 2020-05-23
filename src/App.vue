@@ -3,7 +3,7 @@
     <Main class="main" />
 
     <Player
-      v-for="user in $store.state.users"
+      v-for="user in $whim.users"
       :key="user.id"
       class="box"
       :class="`pos${user.positionNumber}`"
@@ -28,8 +28,6 @@ export default {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 30%;
-  height: 30%;
   text-align: center;
   background: rgba(256, 256, 256, 0.7);
   z-index: 1;
