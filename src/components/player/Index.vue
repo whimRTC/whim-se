@@ -4,7 +4,12 @@
 <script>
 export default {
   name: "Player",
-  props: ["displayUser"] // 表示されているUserの情報
+  props: {
+    displayUser: {
+      type: Object,
+      required: true
+    }
+  } // 表示されているUserの情報
 };
 </script>
 <style lang="scss" scoped></style>
