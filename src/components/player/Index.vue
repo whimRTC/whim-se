@@ -17,29 +17,40 @@ export default {
       required: true
     }
   },
+  computed: {
+    sound() {
+      return this.$whim.state.sound;
+    }
+  },
   methods: {
     play(src) {
       const sound = new Howl({
         src: src
       });
-      sound.volume(1.0);
-      if (sound.playing()) {
-        sound.stop();
-      } else {
-        sound.play();
-      }
+      sound.volume(0.8);
+      sound.play();
+    },
+    sendSound(src) {
+      this.$whim.assignState({
+        sound: src
+      });
     },
     cheer() {
-      this.play(require("@/assets/people-performance-cheer1.mp3"));
+      this.sendSound(require("@/assets/people-performance-cheer1.mp3"));
     },
     cracker() {
-      this.play(require("@/assets/cracker1.mp3"));
+      this.sendSound(require("@/assets/cracker1.mp3"));
     },
     correct() {
-      this.play(require("@/assets/correct1.mp3"));
+      this.sendSound(require("@/assets/correct1.mp3"));
     },
     incorrect() {
-      this.play(require("@/assets/incorrect1.mp3"));
+      this.sendSound(require("@/assets/incorrect1.mp3"));
+    }
+  },
+  watch: {
+    sound: function(newSound) {
+      this.play(newSound);
     }
   }
 };
