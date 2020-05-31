@@ -17,13 +17,6 @@ export default {
       required: true
     }
   },
-  // data: () => {
-  //   return {
-  //     cheer: new Howl({
-  //       src: ["../../assets/people-performance-cheer1.mp3"]
-  //     })
-  //   };
-  // },
   methods: {
     play(src) {
       const sound = new Howl({
@@ -35,8 +28,6 @@ export default {
       } else {
         sound.play();
       }
-      console.log("playing");
-      console.log(sound);
     },
     cheer() {
       this.play(require("@/assets/people-performance-cheer1.mp3"));
