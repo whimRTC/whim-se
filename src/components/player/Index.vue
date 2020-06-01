@@ -25,7 +25,7 @@ export default {
   methods: {
     play(src) {
       const sound = new Howl({
-        src: src
+        src: require(`@/assets/${src}`)
       });
       sound.volume(0.8);
       sound.play();
@@ -36,16 +36,16 @@ export default {
       });
     },
     cheer() {
-      this.sendSound(require("@/assets/people-performance-cheer1.mp3"));
+      this.sendSound("people-performance-cheer1.mp3");
     },
     cracker() {
-      this.sendSound(require("@/assets/cracker1.mp3"));
+      this.sendSound("@/assets/cracker1.mp3");
     },
     correct() {
-      this.sendSound(require("@/assets/correct1.mp3"));
+      this.sendSound("@/assets/correct1.mp3");
     },
     incorrect() {
-      this.sendSound(require("@/assets/incorrect1.mp3"));
+      this.sendSound("@/assets/incorrect1.mp3");
     }
   },
   watch: {
