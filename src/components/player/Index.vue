@@ -39,13 +39,13 @@ export default {
       this.sendSound("people-performance-cheer1.mp3");
     },
     cracker() {
-      this.sendSound("@/assets/cracker1.mp3");
+      this.sendSound("cracker1.mp3");
     },
     correct() {
-      this.sendSound("@/assets/correct1.mp3");
+      this.sendSound("correct1.mp3");
     },
     incorrect() {
-      this.sendSound("@/assets/incorrect1.mp3");
+      this.sendSound("incorrect1.mp3");
     }
   },
   watch: {
