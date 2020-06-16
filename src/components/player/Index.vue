@@ -9,11 +9,27 @@
       <a class="fuwatto_btn" @click="incorrect">
         <img src="@/assets/cross.svg" class="cross"
       /></a>
+      <a class="fuwatto_btn" @click="drumroll">
+        <img src="@/assets/drum.svg"
+      /></a>
+      <a class="fuwatto_btn" @click="sendSound('chanchan')">
+        <img src="@/assets/trumpet.svg"
+      /></a>
     </template>
   </div>
 </template>
 <script>
 import { Howl } from "howler";
+
+const SE = {
+  cheer: new Howl({ src: require("@/assets/people-performance-cheer1.mp3") }),
+  cracker: new Howl({ src: require("@/assets/cracker1.mp3") }),
+  correct: new Howl({ src: require("@/assets/correct1.mp3") }),
+  incorrect: new Howl({ src: require("@/assets/incorrect1.mp3") }),
+  drum: new Howl({ src: require("@/assets/drum-roll1.mp3") }),
+  rollFinish: new Howl({ src: require("@/assets/roll-finish1.mp3") }),
+  chanchan: new Howl({ src: require("@/assets/chan-chan2.mp3") })
+};
 export default {
   name: "Player",
   props: {
@@ -33,11 +49,14 @@ export default {
   },
   methods: {
     play(src) {
-      const sound = new Howl({
-        src: require(`@/assets/${src}`)
-      });
-      sound.volume(0.8);
+      const sound = SE[src];
+      sound.volume(0.2);
       sound.play();
+      setTimeout(() => {
+        this.$whim.assignState({
+          src: null
+        });
+      }, 3000);
     },
     sendSound(src) {
       this.$whim.assignState({
@@ -45,21 +64,31 @@ export default {
       });
     },
     cheer() {
-      this.sendSound("people-performance-cheer1.mp3");
+      this.sendSound("cheer");
     },
     cracker() {
-      this.sendSound("cracker1.mp3");
+      this.sendSound("cracker");
     },
     correct() {
-      this.sendSound("correct1.mp3");
+      this.sendSound("correct");
     },
     incorrect() {
-      this.sendSound("incorrect1.mp3");
+      this.sendSound("incorrect");
+    },
+    drumroll() {
+      if (this.sound === "drum") {
+        this.sendSound("rollFinish");
+      } else {
+        this.sendSound("drum");
+      }
     }
   },
   watch: {
     sound: function(newSound) {
-      this.play(newSound);
+      if (newSound === "rollFinish") {
+        SE.drum.stop();
+      }
+      if (newSound) this.play(newSound);
     }
   }
 };
