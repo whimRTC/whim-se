@@ -1,11 +1,13 @@
 <template>
   <div>
-    <a class="fuwatto_btn" @click="cheer"><img src="@/assets/claps.png" /></a>
-    <a class="fuwatto_btn" @click="cracker"
-      ><img src="@/assets/cracker.svg"
-    /></a>
-    <a class="fuwatto_btn" @click="correct">正解</a>
-    <a class="fuwatto_btn" @click="incorrect">不正解</a>
+    <template v-if="isMe">
+      <a class="fuwatto_btn" @click="cheer"><img src="@/assets/claps.png"/></a>
+      <a class="fuwatto_btn" @click="cracker"
+        ><img src="@/assets/cracker.svg"
+      /></a>
+      <a class="fuwatto_btn" @click="correct">正解</a>
+      <a class="fuwatto_btn" @click="incorrect">不正解</a>
+    </template>
   </div>
 </template>
 <script>
@@ -22,6 +24,9 @@ export default {
   computed: {
     sound() {
       return this.$whim.state.sound;
+    },
+    isMe() {
+      return this.$whim.accessUser.id === this.displayUser.id;
     }
   },
   methods: {
