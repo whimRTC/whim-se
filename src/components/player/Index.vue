@@ -9,11 +9,15 @@
       <a class="fuwatto_btn" @click="incorrect">
         <img src="@/assets/cross.svg" class="cross"
       /></a>
-      <a class="fuwatto_btn" @click="drumroll">
+      <a
+        class="fuwatto_btn"
+        @click="drumroll"
+        :class="{ active: sound === 'drum' }"
+      >
         <img src="@/assets/drum.svg"
       /></a>
       <a class="fuwatto_btn" @click="sendSound('chanchan')">
-        <img src="@/assets/trumpet.svg"
+        <img src="@/assets/trumpet.svg" class="trumpet"
       /></a>
     </template>
   </div>
@@ -96,8 +100,7 @@ export default {
 <style lang="scss" scoped>
 .fuwatto_btn {
   display: block;
-  background-color: #67c5ff;
-  color: #fff;
+  background-color: #ffe605;
   margin: 10px;
   padding: 0.8em;
   text-decoration: none;
@@ -119,5 +122,11 @@ img {
 }
 .cross {
   width: 70%;
+}
+.trumpet {
+  transform: rotate(-30deg);
+}
+.active {
+  background-color: #ff0505;
 }
 </style>
