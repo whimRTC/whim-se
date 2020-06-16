@@ -2,13 +2,6 @@
   <div>
     <template v-if="isMe">
       <a class="fuwatto_btn" @click="cheer"><img src="@/assets/claps.png"/></a>
-      <a class="fuwatto_btn" @click="cracker"
-        ><img src="@/assets/cracker.svg"
-      /></a>
-      <a class="fuwatto_btn" @click="correct">正解</a>
-      <a class="fuwatto_btn" @click="incorrect">
-        <img src="@/assets/cross.svg" class="cross"
-      /></a>
       <a
         class="fuwatto_btn"
         @click="drumroll"
@@ -31,8 +24,15 @@
       <a class="fuwatto_btn" @click="sendSound('bomb')">
         <img src="@/assets/bomb.svg"
       /></a>
+      <a class="fuwatto_btn" @click="correct">正解</a>
+      <a class="fuwatto_btn" @click="incorrect">
+        <img src="@/assets/cross.svg" class="cross"
+      /></a>
       <a class="fuwatto_btn" @click="sendSound('wolf')">
         <img src="@/assets/wolf.svg"
+      /></a>
+      <a class="fuwatto_btn" @click="cracker"
+        ><img src="@/assets/cracker.svg"
       /></a>
     </template>
   </div>
