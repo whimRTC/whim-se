@@ -22,6 +22,18 @@
       <a class="fuwatto_btn" @click="sendSound('tin')">
         <img src="@/assets/tin.svg"
       /></a>
+      <a class="fuwatto_btn" @click="sendSound('spring')">
+        <img src="@/assets/clown.svg"
+      /></a>
+      <a class="fuwatto_btn" @click="sendSound('shine')">
+        <img src="@/assets/diamond.svg"
+      /></a>
+      <a class="fuwatto_btn" @click="sendSound('bomb')">
+        <img src="@/assets/bomb.svg"
+      /></a>
+      <a class="fuwatto_btn" @click="sendSound('wolf')">
+        <img src="@/assets/wolf.svg"
+      /></a>
     </template>
   </div>
 </template>
@@ -36,7 +48,11 @@ const SE = {
   drum: new Howl({ src: require("@/assets/drum-roll1.mp3") }),
   rollFinish: new Howl({ src: require("@/assets/roll-finish1.mp3") }),
   chanchan: new Howl({ src: require("@/assets/chan-chan2.mp3") }),
-  tin: new Howl({ src: require("@/assets/tin1.mp3") })
+  tin: new Howl({ src: require("@/assets/tin1.mp3") }),
+  shine: new Howl({ src: require("@/assets/shine4.mp3") }),
+  spring: new Howl({ src: require("@/assets/boyoyon1.mp3") }),
+  bomb: new Howl({ src: require("@/assets/bomb1.mp3") }),
+  wolf: new Howl({ src: require("@/assets/wolf.wav") })
 };
 export default {
   name: "Player",
