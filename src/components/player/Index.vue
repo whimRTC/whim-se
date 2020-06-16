@@ -19,6 +19,9 @@
       <a class="fuwatto_btn" @click="sendSound('chanchan')">
         <img src="@/assets/trumpet.svg" class="trumpet"
       /></a>
+      <a class="fuwatto_btn" @click="sendSound('tin')">
+        <img src="@/assets/tin.svg"
+      /></a>
     </template>
   </div>
 </template>
@@ -32,7 +35,8 @@ const SE = {
   incorrect: new Howl({ src: require("@/assets/incorrect1.mp3") }),
   drum: new Howl({ src: require("@/assets/drum-roll1.mp3") }),
   rollFinish: new Howl({ src: require("@/assets/roll-finish1.mp3") }),
-  chanchan: new Howl({ src: require("@/assets/chan-chan2.mp3") })
+  chanchan: new Howl({ src: require("@/assets/chan-chan2.mp3") }),
+  tin: new Howl({ src: require("@/assets/tin1.mp3") })
 };
 export default {
   name: "Player",
@@ -56,11 +60,14 @@ export default {
       const sound = SE[src];
       sound.volume(0.2);
       sound.play();
-      setTimeout(() => {
-        this.$whim.assignState({
-          src: null
-        });
-      }, 3000);
+      setTimeout(
+        () => {
+          this.$whim.assignState({
+            sound: null
+          });
+        },
+        src === "drum" ? 4000 : 0
+      );
     },
     sendSound(src) {
       this.$whim.assignState({
