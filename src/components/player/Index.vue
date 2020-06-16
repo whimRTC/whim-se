@@ -1,9 +1,11 @@
 <template>
   <div>
-    <button @click="cheer">歓声</button>
-    <button @click="cracker">クラッカー</button>
-    <button @click="correct">正解</button>
-    <button @click="incorrect">不正解</button>
+    <a class="fuwatto_btn" @click="cheer"><img src="@/assets/claps.png" /></a>
+    <a class="fuwatto_btn" @click="cracker"
+      ><img src="@/assets/cracker.svg"
+    /></a>
+    <a class="fuwatto_btn" @click="correct">正解</a>
+    <a class="fuwatto_btn" @click="incorrect">不正解</a>
   </div>
 </template>
 <script>
@@ -55,4 +57,27 @@ export default {
   }
 };
 </script>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.fuwatto_btn {
+  display: block;
+  background-color: #67c5ff;
+  color: #fff;
+  padding: 0.8em;
+  text-decoration: none;
+  border-radius: 4px;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.12),
+    0 3px 1px -2px rgba(0, 0, 0, 0.2);
+  transition: 0.3s ease-out;
+  width: 50px;
+  text-align: center; /*一応BOX内の文字も中央寄せ*/
+  &:hover {
+    cursor: pointer;
+    text-decoration: none;
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.12),
+      0 3px 20px 0 rgba(0, 0, 0, 0.12), 0 5px 6px -2px rgba(0, 0, 0, 0.2);
+  }
+}
+img {
+  width: 100%;
+}
+</style>
