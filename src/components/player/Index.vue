@@ -76,7 +76,7 @@ export default {
   methods: {
     play(src) {
       const sound = SE[src];
-      sound.volume(0.2);
+      sound.volume(0.1);
       sound.play();
       setTimeout(
         () => {
