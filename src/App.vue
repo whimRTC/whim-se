@@ -1,19 +1,6 @@
 <template>
   <div id="app">
-    <link
-      href="https://fonts.googleapis.com/css?family=Material+Icons"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/@mdi/font@5.x/css/materialdesignicons.min.css"
-      rel="stylesheet"
-    />
-    <Player
-      v-for="user in $whim.users"
-      :key="user.id"
-      :class="whimUserWindowClass(user)"
-      :displayUser="user"
-    />
+    <Main class="main" />
   </div>
 </template>
 
@@ -21,7 +8,7 @@
 export default {
   name: "App",
   components: {
-    Player: () => import("@/components/player/Index")
+    Main: () => import("@/components/main/Index")
   }
 };
 </script>
@@ -29,11 +16,10 @@ export default {
 <style lang="scss" scoped>
 .main {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  width: 100vw;
+  height: auto;
+  min-height: 100vh;
   text-align: center;
-  background: rgba(256, 256, 256, 0.7);
   z-index: 1;
   border-radius: 10px;
 }

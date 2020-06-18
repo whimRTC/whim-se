@@ -1,6 +1,6 @@
 <template>
   <div>
-    <template v-if="isMe">
+    <template>
       <a class="fuwatto_btn" @click="cheer"><img src="@/assets/claps.png"/></a>
       <a
         class="fuwatto_btn"
@@ -57,20 +57,10 @@ const SE = {
   wolf: new Howl({ src: require("@/assets/wolf.wav") })
 };
 export default {
-  name: "Player",
-  props: {
-    displayUser: {
-      // 表示されているUserの情報
-      type: Object,
-      required: true
-    }
-  },
+  name: "Main",
   computed: {
     sound() {
       return this.$whim.state.sound;
-    },
-    isMe() {
-      return this.$whim.accessUser.id === this.displayUser.id;
     }
   },
   methods: {
