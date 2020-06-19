@@ -33,9 +33,9 @@
       <a class="fuwatto_btn" @click="sendSound('wolf')">
         <img src="@/assets/wolf.svg"
       /></a>
-      <a class="fuwatto_btn" @click="cracker"
+      <!-- <a class="fuwatto_btn" @click="cracker"
         ><img src="@/assets/cracker.svg"
-      /></a>
+      /></a> -->
     </template>
   </div>
 </template>
