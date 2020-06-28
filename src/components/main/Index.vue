@@ -1,7 +1,9 @@
 <template>
   <div>
     <template>
-      <a class="fuwatto_btn" @click="sendSound('cheer')"><img src="@/assets/claps.png"/></a>
+      <a class="fuwatto_btn" @click="sendSound('cheer')"
+        ><img src="@/assets/claps.png"
+      /></a>
       <a
         class="fuwatto_btn"
         @click="drumroll"
