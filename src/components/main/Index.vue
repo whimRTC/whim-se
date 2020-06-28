@@ -1,7 +1,7 @@
 <template>
   <div>
     <template>
-      <a class="fuwatto_btn" @click="cheer"><img src="@/assets/claps.png"/></a>
+      <a class="fuwatto_btn" @click="sendSound('cheer')"><img src="@/assets/claps.png"/></a>
       <a
         class="fuwatto_btn"
         @click="drumroll"
@@ -24,18 +24,15 @@
       <a class="fuwatto_btn" @click="sendSound('bomb')">
         <img src="@/assets/bomb.svg"
       /></a>
-      <a class="fuwatto_btn" @click="correct"
+      <a class="fuwatto_btn" @click="sendSound('correct')"
         ><img src="@/assets/circle.png"
       /></a>
-      <a class="fuwatto_btn" @click="incorrect">
+      <a class="fuwatto_btn" @click="sendSound('incorrect')">
         <img src="@/assets/cross.svg"
       /></a>
       <a class="fuwatto_btn" @click="sendSound('wolf')">
         <img src="@/assets/wolf.svg"
       /></a>
-      <!-- <a class="fuwatto_btn" @click="cracker"
-        ><img src="@/assets/cracker.svg"
-      /></a> -->
     </template>
   </div>
 </template>
@@ -44,7 +41,6 @@ import { Howl } from "howler";
 
 const SE = {
   cheer: new Howl({ src: require("@/assets/people-performance-cheer1.mp3") }),
-  cracker: new Howl({ src: require("@/assets/cracker1.mp3") }),
   correct: new Howl({ src: require("@/assets/correct1.mp3") }),
   incorrect: new Howl({ src: require("@/assets/incorrect1.mp3") }),
   drum: new Howl({ src: require("@/assets/drum-roll1.mp3") }),
@@ -81,18 +77,6 @@ export default {
       this.$whim.assignState({
         sound: src
       });
-    },
-    cheer() {
-      this.sendSound("cheer");
-    },
-    cracker() {
-      this.sendSound("cracker");
-    },
-    correct() {
-      this.sendSound("correct");
-    },
-    incorrect() {
-      this.sendSound("incorrect");
     },
     drumroll() {
       if (this.sound === "drum") {
